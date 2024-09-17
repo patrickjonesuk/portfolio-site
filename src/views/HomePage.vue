@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import SkillsCard from '@/components/SkillsCard.vue';
-import { Contact, about_description, cv_url, project_description, skills } from '@/lib/constants';
+import {
+  Contact,
+  about_description,
+  cv_url,
+  project_description,
+  skills,
+  streak_stats_url,
+} from '@/lib/constants';
 import { staticImage } from '@/lib/images';
 import Divider from 'primevue/divider';
 import { computed } from 'vue';
 import { $dt } from '@primevue/themes';
 const img = computed(
   () =>
-    'https://streak-stats.demolab.com?' +
+    streak_stats_url +
     Object.entries({
       user: 'patrickjonesuk',
       theme: 'dracula',
@@ -20,7 +27,7 @@ const img = computed(
       hide_current_streak: true,
     })
       .map((x) => x.join('='))
-      .join('&')
+      .join('&'),
 );
 </script>
 

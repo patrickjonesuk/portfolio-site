@@ -260,3 +260,6 @@ export const contact_links: TechCategory = {
     LinkSiteIcon.twitter(Contact.Twitter),
   ],
 };
+
+export const streak_stats_url =
+  import.meta.env.VITE_STREAK_STATS_URL || 'https://streak-stats.demolab.com?';
