@@ -98,7 +98,8 @@ const img = computed(
   padding: var(--p-spacing-inline);
   cursor: pointer;
   display: flex;
-  border: 1px dashed var(--p-divider-border-color);
+  border-radius: var(--p-border-radius);
+  background-color: var(--p-text-accent-colour);
   align-items: center;
   gap: 1rem;
 }
