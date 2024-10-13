@@ -35,7 +35,7 @@ const img = computed(
   <div class="container">
     <div class="intro-container flex-wrap margins">
       <div class="image-container">
-        <img :src="staticImage('general/profile.png').toString()" class="profile-image" />
+        <img :src="staticImage('general/profile.jpg').toString()" class="profile-image" />
       </div>
       <div class="divider" style="flex-basis: 20rem; flex-shrink: 1"></div>
       <div>
