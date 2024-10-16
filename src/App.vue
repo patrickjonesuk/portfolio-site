@@ -19,7 +19,6 @@ import PageFooter from './components/PageFooter.vue';
 .root-container {
   height: 100%;
   flex: 1;
-  margin-top: 5rem;
 }
 
 .footer {

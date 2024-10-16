@@ -5,6 +5,11 @@ import { headerRoutes } from '@/router';
 import Menubar from 'primevue/menubar';
 const items = computed(() => headerRoutes.map(({ name, path }) => ({ label: name, route: path })));
 const menu = ref(null);
+const darkMode = ref(true);
+const toggleDarkMode = () => {
+  darkMode.value = document.querySelector('html')!.classList.toggle('dark-mode');
+};
+const icon = computed(() => (darkMode.value ? 'pi pi-moon' : 'pi pi-sun'));
 </script>
 
 <template>
@@ -28,21 +33,36 @@ const menu = ref(null);
           </a>
         </router-link>
       </template>
+      <template #end>
+        <div class="dark-mode-selector" @click="toggleDarkMode">
+          <i :class="icon"></i>
+        </div>
+      </template>
     </Menubar>
   </div>
 </template>
 
 <style scoped>
 .background {
-  position: fixed;
   background-color: var(--p-background-colour);
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
-@media screen and (min-width: 1px) {
+.dark-mode-selector {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--p-menubar-item-color);
+}
+@media screen and (max-width: 400px) {
   .background {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dark-mode-selector {
+    margin-right: 0;
   }
 }
 </style>
