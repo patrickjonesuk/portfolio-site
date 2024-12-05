@@ -29,6 +29,7 @@ h1 {
 .contact-info {
   padding-top: var(--p-spacing-inline);
   padding-bottom: var(--p-spacing-inline);
+  text-align: center;
 }
 ::v-deep .contact-info > a {
   color: var(--link-text-colour);

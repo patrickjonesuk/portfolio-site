@@ -190,6 +190,10 @@ export const FrameworkIcon: { [key: string]: IconLink } = {
       'https://img.shields.io/badge/Gin-008ECF?style=for-the-badge&logoColor=white&logo=gin',
     clickURL: 'https://gin-gonic.com/',
   },
+  PrimeReact: {
+    imageURL: 'https://img.shields.io/badge/PrimeReact-03C4E8?style=for-the-badge&logoColor=white&logo=primereact',
+    clickURL: 'https://primereact.org/',
+  },
 };
 
 export const LinkSiteIcon: { [key: string]: (url: string) => IconLink } = {

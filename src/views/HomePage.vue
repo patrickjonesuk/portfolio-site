@@ -49,6 +49,11 @@ const img = computed(
         <div class="projects-text">
           <h2>Projects</h2>
           <h4 v-html="project_description"></h4>
+          <div class="project-demo-container">
+            <a class="project-demo-link" href="https://demo.goldsprout.app" target="_blank"
+              >Goldsprout demo</a
+            >
+          </div>
         </div>
         <div class="divider" style="flex-basis: 5rem; flex-shrink: 1"></div>
         <a :href="Contact.Github" class="contribution-image-container"
@@ -166,5 +171,16 @@ h2 {
   height: auto;
   border-radius: var(--p-border-radius);
   object-fit: contain;
+}
+.project-demo-container {
+  display: flex;
+  justify-content: center;
+}
+.project-demo-link {
+  text-decoration: none;
+  color: inherit;
+  background-color: var(--p-text-accent-colour);
+  border-radius: var(--p-border-radius);
+  padding: var(--p-spacing-inline);
 }
 </style>

@@ -60,6 +60,25 @@ The web frontend is a SPA, built with VueJS and Primevue components, and uses Ch
     ],
   },
   {
+    name: 'Photoline',
+    description: `Created in a team of four over a 24-hour period for the GreatUnitHack 2024 hackathon,
+photoline is a web application that allows users to record a timeline of memories over their life.
+Shared events with friends can be created, and each user can contribute their own images, optionally selecting to 
+add private photos which are visible only to them for that event.
+    <br>&nbsp;<br>
+The application is structured as a SPA frontend written using React and PrimeReact components, with a backend server
+written in Go using the Gin web framework and GORM ORM.`,
+    dates: 'Nov 2024',
+    links: [LinkSiteIcon.github('https://github.com/photoline-club')],
+    technologies: [
+      Category.Languages(LanguageIcon.Go, LanguageIcon.JavaScript),
+      Category.Databases(DatabaseIcon.MariaDB),
+      Category.Frameworks(FrameworkIcon.React, FrameworkIcon.PrimeReact, FrameworkIcon.GinGonic),
+      Category.Tools(ToolIcon.Docker),
+    ],
+    images: [],
+  },
+  {
     name: 'Hypixel Skybot',
     description: `
 The first open-source project that I was involved in, as one of three main contributors, this was a program to allow players of a specific game to view information in the popular chat application Discord, and to assist in managing groups of players. The main program was written in python, and used the game's public API to gather and present statistics about players and in-game events, and to synchronise players' in-game and Discord profiles.
