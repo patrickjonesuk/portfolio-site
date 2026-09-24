@@ -213,6 +213,7 @@ export const skills: TechCategory[] = [
   ),
   labelled(
     Category.Frameworks(
+      FrameworkIcon.Spring,
       FrameworkIcon.ExpressJS,
       FrameworkIcon.Flask,
       FrameworkIcon.GinGonic,
@@ -220,6 +221,7 @@ export const skills: TechCategory[] = [
       FrameworkIcon.React,
       FrameworkIcon.PrimeVue,
       FrameworkIcon.ChartJS,
+      FrameworkIcon.Pandas,
     ),
     'In addition to using smaller libraries, I have worked on projects structured around several popular frameworks.',
   ),
@@ -237,16 +239,21 @@ export const skills: TechCategory[] = [
     Category.Tools(
       ToolIcon.Docker,
       ToolIcon.Gradle,
+      ToolIcon.Maven,
       ToolIcon.Git,
       ToolIcon.Bash,
       ToolIcon.Trello,
       ToolIcon.YouTrack,
+      ToolIcon.Jira,
+      ToolIcon.Ansible,
+      ToolIcon.Grafana,
+      ToolIcon.Jenkins,
     ),
     'I have used these tools to efficiently manage development, collaboration and deployment of projects.',
   ),
 ];
 export const about_description = `
-Currently in my second year of a Computer Science degree at the University of Manchester, I am a keen programmer and developer.
+Currently in my final year of a Computer Science degree at the University of Manchester, I am a keen programmer with professional experience as a software developer in the financial services industry.
 <br>&nbsp;<br>
 I have worked on numerous projects with teams from across the world, using a variety of languages, tools and other technologies. I have also developed and deployed several applications independently.
 <br>&nbsp;<br>

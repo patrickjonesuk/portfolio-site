@@ -4,6 +4,17 @@ export function labelled(category: TechCategory, label: string): TechCategory {
   return { ...category, description: label };
 }
 
+export function badge(
+  icon: string,
+  label: string,
+  colour: string,
+  logoColour: string | null = null,
+  style: string = 'for-the-badge',
+): string {
+  const logoColourOpt = logoColour == null ? '' : `&logoColor=${logoColour}`;
+  return `https://img.shields.io/badge/${label}-${colour}?style=${style}&logo=${icon}${logoColourOpt}`;
+}
+
 const b64: { [key: string]: string } = {
   website:
     'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIyMHB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMCAyMCIgd2lkdGg9IjIwcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzAwMDAwMCIgaWQ9IkNvcmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yOTYuMDAwMDAwLCAtMjk2LjAwMDAwMCkiPjxnIGlkPSJsYW5ndWFnZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjk2LjAwMDAwMCwgMjk2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xMCwwIEM0LjUsMCAwLDQuNSAwLDEwIEMwLDE1LjUgNC41LDIwIDEwLDIwIEMxNS41LDIwIDIwLDE1LjUgMjAsMTAgQzIwLDQuNSAxNS41LDAgMTAsMCBMMTAsMCBaIE0xNi45LDYgTDE0LDYgQzEzLjcsNC43IDEzLjIsMy42IDEyLjYsMi40IEMxNC40LDMuMSAxNiw0LjMgMTYuOSw2IEwxNi45LDYgWiBNMTAsMiBDMTAuOCwzLjIgMTEuNSw0LjUgMTEuOSw2IEw4LjEsNiBDOC41LDQuNiA5LjIsMy4yIDEwLDIgTDEwLDIgWiBNMi4zLDEyIEMyLjEsMTEuNCAyLDEwLjcgMiwxMCBDMiw5LjMgMi4xLDguNiAyLjMsOCBMNS43LDggQzUuNiw4LjcgNS42LDkuMyA1LjYsMTAgQzUuNiwxMC43IDUuNywxMS4zIDUuNywxMiBMMi4zLDEyIEwyLjMsMTIgWiBNMy4xLDE0IEw2LDE0IEM2LjMsMTUuMyA2LjgsMTYuNCA3LjQsMTcuNiBDNS42LDE2LjkgNCwxNS43IDMuMSwxNCBMMy4xLDE0IFogTTYsNiBMMy4xLDYgQzQuMSw0LjMgNS42LDMuMSA3LjQsMi40IEM2LjgsMy42IDYuMyw0LjcgNiw2IEw2LDYgWiBNMTAsMTggQzkuMiwxNi44IDguNSwxNS41IDguMSwxNCBMMTEuOSwxNCBDMTEuNSwxNS40IDEwLjgsMTYuOCAxMCwxOCBMMTAsMTggWiBNMTIuMywxMiBMNy43LDEyIEM3LjYsMTEuMyA3LjUsMTAuNyA3LjUsMTAgQzcuNSw5LjMgNy42LDguNyA3LjcsOCBMMTIuNCw4IEMxMi41LDguNyAxMi42LDkuMyAxMi42LDEwIEMxMi42LDEwLjcgMTIuNCwxMS4zIDEyLjMsMTIgTDEyLjMsMTIgWiBNMTIuNiwxNy42IEMxMy4yLDE2LjUgMTMuNywxNS4zIDE0LDE0IEwxNi45LDE0IEMxNiwxNS43IDE0LjQsMTYuOSAxMi42LDE3LjYgTDEyLjYsMTcuNiBaIE0xNC40LDEyIEMxNC41LDExLjMgMTQuNSwxMC43IDE0LjUsMTAgQzE0LjUsOS4zIDE0LjQsOC43IDE0LjQsOCBMMTcuOCw4IEMxOCw4LjYgMTguMSw5LjMgMTguMSwxMCBDMTguMSwxMC43IDE4LDExLjQgMTcuOCwxMiBMMTQuNCwxMiBMMTQuNCwxMiBaIiBpZD0iU2hhcGUiLz48L2c+PC9nPjwvZz48L3N2Zz4=',
@@ -16,12 +27,12 @@ const b64: { [key: string]: string } = {
 export const LanguageIcon: { [key: string]: IconLink } = {
   Python: {
     imageURL:
-      'https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54',
+      badge('python', 'python', '3670A0', 'ffdd54'),
     clickURL: 'https://python.org',
   },
   TypeScript: {
     imageURL:
-      'https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white',
+      badge('typescript', 'typescript', '%23007ACC', 'white'),
     clickURL: 'https://www.typescriptlang.org/',
   },
   JavaScript: {
@@ -31,27 +42,27 @@ export const LanguageIcon: { [key: string]: IconLink } = {
   },
   HTML5: {
     imageURL:
-      'https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white',
+      badge('html5', 'html5', '%23E34F26', 'white'),
     clickURL: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
   },
   CSS3: {
     imageURL:
-      'https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white',
+      badge('css3', 'css3', '%231572B6', 'white'),
     clickURL: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
   },
   Java: {
     imageURL:
-      'https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white',
+      badge('openjdk', 'java', '%23ED8B00', 'white'),
     clickURL: 'https://www.java.com/',
   },
   Kotlin: {
     imageURL:
-      'https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white',
+      badge('kotlin', 'kotlin', '%237F52FF', 'white'),
     clickURL: 'https://kotlinlang.org/',
   },
   Go: {
     imageURL:
-      'https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white',
+      badge('go', 'go', '%2300ADD8', 'white'),
     clickURL: 'https://go.dev/',
   },
   CSharp: {
@@ -61,12 +72,12 @@ export const LanguageIcon: { [key: string]: IconLink } = {
   },
   Markdown: {
     imageURL:
-      'https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white',
+      badge('markdown', 'markdown', '%23000000', 'white'),
     clickURL: 'https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax',
   },
   LaTeX: {
     imageURL:
-      'https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white',
+      badge('latex', 'latex', '%23008080', 'white'),
     clickURL: 'https://www.latex-project.org/',
   },
 };
@@ -74,27 +85,27 @@ export const LanguageIcon: { [key: string]: IconLink } = {
 export const DatabaseIcon: { [key: string]: IconLink } = {
   MongoDB: {
     imageURL:
-      'https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white',
+      badge('mongodb', 'MongoDB', '%234ea94b', 'white'),
     clickURL: 'https://www.mongodb.com/',
   },
   Redis: {
     imageURL:
-      'https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white',
+      badge('redis', 'redis', '%23DD0031', 'white'),
     clickURL: 'https://redis.com/',
   },
   MySQL: {
     imageURL:
-      'https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white',
+      badge('mysql', 'mysql', '%2300f', 'white'),
     clickURL: 'https://www.mysql.com/',
   },
   MariaDB: {
     imageURL:
-      'https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white',
+      badge('mariadb', 'MariaDB', '003545', 'white'),
     clickURL: 'https://mariadb.org/',
   },
   SQLite: {
     imageURL:
-      'https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white',
+      badge('sqlite', 'sqlite', '%2307405e', 'white'),
     clickURL: 'https://www.sqlite.org/',
   },
 };
@@ -102,32 +113,36 @@ export const DatabaseIcon: { [key: string]: IconLink } = {
 export const ToolIcon: { [key: string]: IconLink } = {
   Docker: {
     imageURL:
-      'https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white',
+      badge('docker', 'docker', '%230db7ed', 'white'),
     clickURL: 'https://www.docker.com/',
   },
   Gradle: {
     imageURL:
-      'https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white',
+      badge('Gradle', 'Gradle', '02303A', 'white'),
     clickURL: 'https://gradle.com/',
+  },
+  Maven: {
+    imageURL: badge('apachemaven', 'maven', 'C71A36'),
+    clickURL: 'https://maven.apache.org/'
   },
   Nginx: {
     imageURL:
-      'https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white',
+      badge('nginx', 'nginx', '%23009639', 'white'),
     clickURL: 'https://www.nginx.com/',
   },
   Vite: {
     imageURL:
-      'https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white',
+      badge('vite', 'vite', '%23646CFF', 'white'),
     clickURL: 'https://vitejs.dev/',
   },
   ESLint: {
     imageURL:
-      'https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white',
+      badge('eslint', 'ESLint', '4B3263', 'white'),
     clickURL: 'https://eslint.org/',
   },
   Git: {
     imageURL:
-      'https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white',
+      badge('git', 'git', '%23F05033', 'white'),
     clickURL: 'https://git-scm.com/',
   },
   Bash: {
@@ -137,19 +152,34 @@ export const ToolIcon: { [key: string]: IconLink } = {
   },
   Obsidian: {
     imageURL:
-      'https://img.shields.io/badge/Obsidian-%23483699.svg?style=for-the-badge&logo=obsidian&logoColor=white',
+      badge('obsidian', 'Obsidian', '%23483699', 'white'),
     clickURL: 'https://obsidian.md/',
   },
   Trello: {
     imageURL:
-      'https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white',
+      badge('Trello', 'Trello', '%23026AA7', 'white'),
     clickURL: 'https://trello.com/',
   },
   YouTrack: {
     imageURL:
-      'https://img.shields.io/badge/YouTrack-E20E86.svg?style=for-the-badge&logoColor=white&logo=' +
-      b64.youtrack,
+      badge(b64.youtrack, 'YouTrack', 'E20E86', 'white'),
     clickURL: 'https://www.jetbrains.com/youtrack/',
+  },
+  Jira: {
+    imageURL: badge('jira', 'Jira', '0052CC'),
+    clickURL: 'https://www.atlassian.com/software/jira',
+  },
+  Jenkins: {
+    imageURL: badge('jenkins', 'Jenkins', 'D24939', 'white'),
+    clickURL: 'https://www.jenkins.io/',
+  },
+  Ansible: {
+    imageURL: badge('ansible', 'Ansible', 'EE0000'),
+    clickURL: 'https://docs.ansible.com/'
+  },
+  Grafana: {
+    imageURL: badge('grafana', 'Grafana', 'F46800', 'white'),
+    clickURL: 'https://grafana.com/'
   },
 };
 
@@ -161,7 +191,7 @@ export const FrameworkIcon: { [key: string]: IconLink } = {
   },
   Flask: {
     imageURL:
-      'https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white',
+      badge('flask', 'flask', '%23000', 'white'),
     clickURL: 'https://flask.palletsprojects.com/en/3.0.x/',
   },
   VueJS: {
@@ -191,8 +221,17 @@ export const FrameworkIcon: { [key: string]: IconLink } = {
     clickURL: 'https://gin-gonic.com/',
   },
   PrimeReact: {
-    imageURL: 'https://img.shields.io/badge/PrimeReact-03C4E8?style=for-the-badge&logoColor=white&logo=primereact',
+    imageURL:
+      'https://img.shields.io/badge/PrimeReact-03C4E8?style=for-the-badge&logoColor=white&logo=primereact',
     clickURL: 'https://primereact.org/',
+  },
+  Spring: {
+    imageURL: badge('spring', 'Spring', '6DB33F', 'white'),
+    clickURL: 'https://spring.io/',
+  },
+  Pandas: {
+    imageURL: badge('pandas', 'Pandas', '150458'),
+    clickURL: 'https://pandas.pydata.org/'
   },
 };
 
@@ -201,7 +240,7 @@ export const LinkSiteIcon: { [key: string]: (url: string) => IconLink } = {
     return {
       clickURL: url,
       imageURL:
-        'https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white',
+        badge('github', 'github', '%23121011', 'white'),
     };
   },
   website(url) {
@@ -216,26 +255,26 @@ export const LinkSiteIcon: { [key: string]: (url: string) => IconLink } = {
     return {
       clickURL: url,
       imageURL:
-        'https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white',
+        badge('linkedin', 'linkedin', '%230077B5', 'white'),
     };
   },
   twitter(url) {
     return {
       clickURL: url,
       imageURL:
-        'https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white',
+        badge('Twitter', 'Twitter', '%231DA1F2', 'white'),
     };
   },
 };
 export const InfraIcon: { [key: string]: IconLink } = {
   Cloudflare: {
     imageURL:
-      'https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white',
+      badge('Cloudflare', 'Cloudflare', 'F38020', 'white'),
     clickURL: 'https://cloudflare.com',
   },
   Vercel: {
     imageURL:
-      'https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white',
+      badge('vercel', 'vercel', '%23000000', 'white'),
     clickURL: 'https://vercel.com/',
   },
 };
